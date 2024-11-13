@@ -48,4 +48,3 @@ The directory structure of new project looks like this:
 └── README.md
 ```
 
-salut
