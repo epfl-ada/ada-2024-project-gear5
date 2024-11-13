@@ -1,7 +1,7 @@
 # ADA 2024 - Gear 5
 
 
-# Your project name
+# Evolution of cinema through the years
 This is a template repo for your project to help you organise and document your code better. 
 Please use this structure for your project and document the installation, usage and structure as below.
 
