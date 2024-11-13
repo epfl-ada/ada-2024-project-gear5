@@ -1,18 +1,35 @@
 # ADA 2024 - Gear 5
 
 
-# Evolution of cinema through the years
-This is a template repo for your project to help you organise and document your code better. 
-Please use this structure for your project and document the installation, usage and structure as below.
+# Evolution of cinema through the years, finding the golden age.
+
+## Abstract
 
 
-### How to use the library
-Tell us how the code is arranged, any explanations goes here.
+## Research questions
+1. What were some of the "golden ages" of cinema through the years? (sorted by movie genre and country)
+2. What caused the success and the downfall of these "golden ages"? Can the success of certain genres be traced back to single movies?
+3. What are some of the main differences between these golden ages and the movie industry now?
+4. Is it possible to predict the next cinema golden age?
+
+## Additional datasets
+In addition to the original dataset, we are using the movielens dataset. This dataset gives us access to reviews and ratings for each movies. 
+
+
+## Methods
+
+
+## Proposed timeline
+11/11 - 17/11: Project P2 deadline
+18/11 - 24/11:
+25/11 - 01/12:
+02/12 - 08/12:
+09/12 - 15/12:
+16/12 - 20/12: Project P3, deadline, Finishing the 
 
 
 
 ## Project Structure
-
 The directory structure of new project looks like this:
 
 ```
@@ -33,3 +50,4 @@ The directory structure of new project looks like this:
 └── README.md
 ```
 
+## Questions for the TA
