@@ -19,14 +19,48 @@ In addition to the original dataset, we are using the movielens dataset. This da
 ## Methods
 
 
-## Proposed timeline
-11/11 - 17/11: Project P2 deadline
-18/11 - 24/11:
-25/11 - 01/12:
-02/12 - 08/12:
-09/12 - 15/12:
-16/12 - 20/12: Project P3, deadline, Finishing the 
 
+
+## Proposed timeline
+Week 9 -- 11/11 - 17/11: 
+- Finding the additional datasets needed for the idea
+- Combining the dataset and cleaning the data
+- Have Proofs of conecepts for all the methods we want to use in the project
+- Project P2 deadline
+
+Week 10 -- 18/11 - 24/11: 
+- Focus on Homework 2
+- Running the sentiment analysis on the movie critics
+- Defining the "sucess" metric and testing it on selected movies to see how weel it works
+
+Week 11 -- 25/11 - 01/12: 
+- Focus on Homework 2
+- Finish the first part of the project
+    - Timeseries analysis to find "golden ages"
+    - Vizualisation of the results found
+
+Week 12 -- 02/12 - 08/12: 
+- Data vizualisation for second part
+- Using predictive models on the timeseries for part 3
+
+Week 13 -- 09/12 - 15/12: 
+- Start writing the story. Will need to complete work done with more vizualisations
+
+Week 14 -- 16/12 - 20/12: 
+- Project P3 deadline
+    - Finish the story we want to tell
+
+
+## Work breakdown
+Bastien: 
+
+Leo:
+
+Loic:
+
+Mahmoud:
+
+Matthieu:
 
 
 ## Project Structure
