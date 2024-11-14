@@ -46,7 +46,7 @@ a
 Finally, in the third part of our project, we are going to use the timeseries derived in part 1 to make some predictions. The aim is to predict the future state of the movie industry in terms of success. To do so, we are going to compare the performance of these different algorithms:
 - Polynomial regression / Ridge regression: Might do the algorithms ourselves
 - Autoregressive integrated moving average (ARIMA): "statsmodel" package in python
-- Vector autoregression (VAR): "statsmodel" package in python
+
 
 
 
