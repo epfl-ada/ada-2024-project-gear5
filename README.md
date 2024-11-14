@@ -29,10 +29,10 @@ For the sentiment analysis, we want to use [...].
 
 
 
-### Part 1 - Change point analysis on timeseries
-Once we have a robust success metric, we want to apply it to all the movies in our combined dataset. We will then group movies by the country in which they were produced and by their genre (NB: Movies might have more then one genre, we are going to make them appear in all their genre). 
+### Part 1 - Change point analysis success per genre per country
+Once we have a robust success metric, we want to apply it to all the movies in our combined dataset. We will then group movies by the country in which they were produced, by their genre (NB: Movies might have more then one genre, we are going to make them appear in all their genre) and by the year they were produced in. From this, we are going to create arrays to track the evolution of the success of movies genres per country on a yearly basis. 
 
-This is going to give us a multitude of timeseries of the success. We are going to analyze these timeseries to find major change points indicating the beginning or the end of a "Golden age". We have not yet chosen the method we are going to use for the project as multiple could be used, such as: 
+This is going to give us a multitude of "yearly success" arrays. We are going to analyze these timeseries to find major change points indicating the beginning or the end of a "Golden age". We have not yet chosen the method we are going to use for the project as multiple could be used, such as: 
 - a
 - b
 - c
@@ -43,7 +43,7 @@ a
 
 
 ### Part 3 - Success prediction
-Finally, in the third part of our project, we are going to use the timeseries derived in part 1 to make some predictions. The aim is to predict the future state of the movie industry in terms of success. To do so, we are going to compare the performance of these different algorithms:
+Finally, in the third part of our project, we are going to use the success yearly arrays derived in part 1 to make some predictions. The aim is to predict the future state of the movie industry in terms of success. To do so, we are going to compare the performance of these different algorithms:
 - Polynomial regression / Ridge regression: Might do the algorithms ourselves
 - Autoregressive integrated moving average (ARIMA): "statsmodel" package in python
 
@@ -54,7 +54,7 @@ Finally, in the third part of our project, we are going to use the timeseries de
 Week 9 -- 11/11 - 17/11: 
 - [x] Finding the additional datasets needed for the idea
 - [ ] Combining the dataset and cleaning the data
-- [ ] Have Proofs of conecepts for all the methods we want to use in the project
+- [ ] Have Proofs of concepts for all the methods we want to use in the project
 - [ ] Project P2 deadline
 
 Week 10 -- 18/11 - 24/11: 
@@ -65,12 +65,12 @@ Week 10 -- 18/11 - 24/11:
 Week 11 -- 25/11 - 01/12: 
 - [ ] Focus on Homework 2
 - [ ] Finish the first part of the project
-    - [ ] Timeseries analysis to find "golden ages"
+    - [ ] Success yearly arrays analysis to find "golden ages"
     - [ ] Vizualisation of the results found
 
 Week 12 -- 02/12 - 08/12: 
 - [ ] Data vizualisation for second part
-- [ ] Using predictive models on the timeseries for part 3
+- [ ] Using predictive models on the success yearly arrays for part 3
 
 Week 13 -- 09/12 - 15/12: 
 - [ ] Start writing the story. Will need to complete work done with more vizualisations
