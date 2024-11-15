@@ -1,3 +1,2 @@
-data/Converter
-data/MovieSummaries
-data/TMDBMovies
+data/*
+!data
