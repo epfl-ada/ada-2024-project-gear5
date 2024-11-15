@@ -17,6 +17,7 @@ The movielens dataset gives us access to reviews and ratings for a wide range of
 The tmdb dataset allows us to have a more complete version, closer in style to the original CMU Movie one. (Link: https://www.kaggle.com/datasets/asaniczka/tmdb-movies-dataset-2023-930k-movies)
 
 
+In addition to the original dataset, we are using the movielens dataset. This dataset gives us access to reviews and ratings for a wide range of movies. (Link: https://grouplens.org/datasets/movielens/).
 
 ## Methods
 ### Part 1 - Defining the "Golden Age" thanks to the success metric
@@ -26,7 +27,7 @@ For our project, we intend on defining the relative success of a movie by assess
 - User movie ratings (From the MovieLens dataset): This metric gives the grade given by individual users on the MovieLens website. 
 - Reviews sentiment analysis (From the MovieLens dataset): From user reviews collected on the MovieLens website, we want to run a sentiment analysis to find if they are positive or negative, and thus assess the evolution of sentiments along the years. For the sentiment analysis, we want to use FacebookAI's RoBERTa-base, a pretrained tokenizer and model distributed by HugginFace.
 
-
+### Part 2 - Change point analysis success per genre per country
 
 ### Part 2 - Time-related trends analysis per genre and country
 Once the robust success metric is created, we want to apply it to all the movies in our combined dataset. One way to proceed is to group movies by the country in which they were produced, by their respective genre (NB: Movies might have more then one genre, we are going to make them appear in every genre they're assigned to.) and by the year they were produced in. From this, we are going to create arrays to track the evolution of the success of movies genres per country on a yearly basis. This is going to give us a multitude of "yearly success" arrays. These timeseries could be very useful to find major change points indicating the beginning or the end of a era.
@@ -39,7 +40,9 @@ We are also going to use the insight we have gathered before through our thoroug
 
 
 ## Proposed timeline
-Week 9 -- 11/11 - 17/11: 
+
+Week 9 -- 11/11 - 17/11:
+
 - [x] Finding the additional datasets needed for the idea
 - [ ] Combining the dataset and cleaning the data
 - [ ] Have Proofs of concepts for all the methods we want to use in the project
@@ -51,25 +54,29 @@ Week 10 -- 18/11 - 24/11:
 
 Week 11 -- 25/11 - 01/12: 
 - [ ] Finish the first part of the project
-    - [ ] Success yearly arrays analysis to find "golden ages"
-    - [ ] Vizualisation of the results found
+  - [ ] Success yearly arrays analysis to find "golden ages"
+  - [ ] Vizualisation of the results found
 
-Week 12 -- 02/12 - 08/12: 
+Week 12 -- 02/12 - 08/12:
+
 - [ ] Data vizualisation for second part
 - [ ] Using predictive models on the success yearly arrays for part 3
 
-Week 13 -- 09/12 - 15/12: 
+Week 13 -- 09/12 - 15/12:
+
 - [ ] Start writing the story. Will need to complete work done with more vizualisations
 
-Week 14 -- 16/12 - 20/12: 
+Week 14 -- 16/12 - 20/12:
+
 - [ ] Project P3 deadline
-    - [ ] Finish the story we want to tell
+  - [ ] Finish the story we want to tell
 
 to update
 ## Project Structure
+
 The directory structure of new project looks like this:
 
-```
+```text
 ├── data                        <- Project data files
 │
 ├── src                         <- Source code
