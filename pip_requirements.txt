@@ -1,5 +1,6 @@
 scikit-learn==1.5.2
 statsmodels==0.14.2
+transformers==4.39.3
 
 */ Given in the base file /*
 datasets==2.18.0
