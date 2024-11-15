@@ -86,4 +86,19 @@ The directory structure of new project looks like this:
 ├── pip_requirements.txt        <- File for installing python dependencies
 └── README.md
 ```
+
+### Quickstart
+
+bash
+# clone project
+git clone https://github.com/epfl-ada/ada-2024-project-gear5
+cd <project repo>
+
+# [OPTIONAL] create conda environment
+conda create -n <env_name> python=3.12
+conda activate <env_name>
+
+# install requirements
+pip install -r pip_requirements.txt
+
 ## Questions for the TA
