@@ -1,3 +1,4 @@
 data/movie_dataset_public_final/*
 data/genome_2021.zip
+data/TMDBMovies/*
 !data
