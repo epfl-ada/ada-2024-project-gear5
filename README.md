@@ -13,8 +13,8 @@ This project delves into the evolution of cinema to explore whether a “Golden 
 
 ## Additional datasets
 In addition to the original dataset, we are using the movielens and tmdb datasets. 
-The movielens dataset gives us access to reviews and ratings for a wide range of movies.[1^]
-The tmdb dataset allows us to have a more complete version, closer in style to the original CMU Movie one.[2^]
+The movielens dataset gives us access to reviews and ratings for a wide range of movies.[^1]
+The tmdb dataset allows us to have a more complete version, closer in style to the original CMU Movie one.[^2]
 
 
 ## Methods
@@ -80,8 +80,8 @@ pip install -r pip_requirements.txt
 
 ## References
 
-[1^] : https://grouplens.org/datasets/movielens/
-[2^] : https://www.kaggle.com/datasets/asaniczka/tmdb-movies-dataset-2023-930k-movies
+* [^1] : https://grouplens.org/datasets/movielens/
+* [^2] : https://www.kaggle.com/datasets/asaniczka/tmdb-movies-dataset-2023-930k-movies
 
 
 to update
