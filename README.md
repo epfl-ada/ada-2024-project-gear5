@@ -27,9 +27,8 @@ This project delves into the evolution of cinema to explore whether a “Golden 
 
 ## Additional datasets
 In addition to the original dataset, we are using the movielens and tmdb datasets. 
-The movielens dataset gives us access to reviews and ratings for a wide range of movies[^1]. (Link: https://grouplens.org/datasets/movielens/)
-The tmdb dataset allows us to have a more complete version, closer in style to the original CMU Movie one.[^2] (Link: https://www.kaggle.com/datasets/asaniczka/tmdb-movies-dataset-2023-930k-movies)
-
+The [movielens dataset][1] gives us access to reviews and ratings for a wide range of movies. 
+The [TMBb dataset][2] allows us to have a more complete version, closer in style to the original CMU Movie one.
 
 ## Methods
 ### Part 1 - Defining the "Golden Age" thanks to the success metric
@@ -82,8 +81,8 @@ Week 14 -- 16/12 - 20/12:
 
 ## References
 
-[^1] : Movielens dataset: https://grouplens.org/datasets/movielens/
-[^2] : TMDb dataset: https://www.kaggle.com/datasets/asaniczka/tmdb-movies-dataset-2023-930k-movies
+[1] : Movielens dataset: https://grouplens.org/datasets/movielens/
+[2] : TMDb dataset: https://www.kaggle.com/datasets/asaniczka/tmdb-movies-dataset-2023-930k-movies
 
 ## Project Structure
 The directory structure of new project looks like this:
