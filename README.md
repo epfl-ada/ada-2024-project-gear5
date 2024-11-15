@@ -13,9 +13,8 @@ This project delves into the evolution of cinema to explore whether a “Golden 
 
 ## Additional datasets
 In addition to the original dataset, we are using the movielens and tmdb datasets. 
-The movielens dataset gives us access to reviews and ratings for a wide range of movies. (Link: https://grouplens.org/datasets/movielens/)
-The tmdb dataset allows us to have a more complete version, closer in style to the original CMU Movie one. (Link: https://www.kaggle.com/datasets/asaniczka/tmdb-movies-dataset-2023-930k-movies)
-
+The movielens dataset gives us access to reviews and ratings for a wide range of movies.[1]
+The tmdb dataset allows us to have a more complete version, closer in style to the original CMU Movie one.[2]
 
 
 ## Methods
@@ -70,7 +69,6 @@ Week 14 -- 16/12 - 20/12:
 # clone project
 git clone https://github.com/epfl-ada/ada-2024-project-gear5.git
 cd <project repo>
-```
 
 # [OPTIONAL] create conda environment
 conda create -n <env_name> python=3.12
@@ -78,6 +76,7 @@ conda activate <env_name>
 
 # install requirements
 pip install -r pip_requirements.txt
+```
 
 ## References
 
