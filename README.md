@@ -109,7 +109,9 @@ The directory structure of new project looks like this:
 │
 ├── src                         <- Source code
 │   ├── data                            <- Data directory
-│   ├── models                          <- Model directory
+│   ├── models    
+│		│		├── ARIMA.py                        <- Used to run the ARIMA algo
+│		│   ├── PolynomialRegression.py         <- Used to run the polynomial regression 
 │   ├── utils                           <- Utility directory
 │   │   ├── print_prediction                    <- Printing prediction proof of concept
 │
