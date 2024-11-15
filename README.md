@@ -15,7 +15,6 @@ conda activate <env_name>
 # install requirements
 pip install -r pip_requirements.txt
 ```
-
 ## Abstract
 
 This project delves into the evolution of cinema to explore whether a “Golden Age” has existed and to identify the key factors that define success across eras. By analyzing historical and contemporary trends in film production, genre popularity, and global appeal, we aim to uncover patterns that reflect shifts in cinematic influence and cultural resonance over time. Our approach considers both the artistic and economic dimensions of the film industry, examining how certain genres, themes, and regions rise to prominence and shape cinematic eras. Ultimately, we seek to understand where the current landscape fits within cinema’s broader history and what trends may lie ahead. Through data-driven insights, we hope to tell a compelling story of cinema’s dynamic journey and its role in reflecting and shaping society across decades.
@@ -64,12 +63,14 @@ The key insights from this analysis will offer conclusions about the future dire
 ## Proposed timeline and organization
 
 Week 9 -- 11/11 - 17/11: 
+
 - [x] Finding the additional datasets needed for the idea
 - [ ] Combining the dataset and cleaning the data
 - [ ] Have Proofs of concepts for all the methods we want to use in the project
 - [x] Project P2 deadline
 
 Week 10 -- 18/11 - 24/11: 
+
 - [ ] Running the sentiment analysis on the movie critics: **Mahmoud**, **Mathieu**
 - [ ] Defining the "success" metric and testing it on selected movies to see how well it works: **Loïc**, **Léo**, **Bastien**
 
@@ -93,7 +94,7 @@ Week 14 -- 16/12 - 20/12:
 
 The directory structure of new project looks like this:
 
-```
+```text
 ├── data                        <- Project data files
 │
 ├── src                         <- Source code
