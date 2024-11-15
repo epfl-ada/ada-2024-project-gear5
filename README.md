@@ -1,20 +1,6 @@
 # ADA 2024 - Gear 5
 # Evolution of cinema through the years, finding the golden age.
 
-## Quickstart
-
-```bash
-# clone project
-git clone https://github.com/epfl-ada/ada-2024-project-gear5.git
-cd <project repo>
-
-# [OPTIONAL] create conda environment
-conda create -n <env_name> python=3.12
-conda activate <env_name>
-
-# install requirements
-pip install -r pip_requirements.txt
-```
 ## Abstract
 
 This project delves into the evolution of cinema to explore whether a “Golden Age” has existed and to identify the key factors that define success across eras. By analyzing historical and contemporary trends in film production, genre popularity, and global appeal, we aim to uncover patterns that reflect shifts in cinematic influence and cultural resonance over time. Our approach considers both the artistic and economic dimensions of the film industry, examining how certain genres, themes, and regions rise to prominence and shape cinematic eras. Ultimately, we seek to understand where the current landscape fits within cinema’s broader history and what trends may lie ahead. Through data-driven insights, we hope to tell a compelling story of cinema’s dynamic journey and its role in reflecting and shaping society across decades.
@@ -45,7 +31,7 @@ For our project, we intend on defining the relative success of a movie by assess
 
 ### Part 2 - Time-related trends analysis per genre and country
 
-Once the robust success metric is created, we want to apply it to all the movies in our combined dataset. This will help us to indicate how movie success (measured by box office, ratings, and sentiment) changes over time by genre and country, helping to identify shifts in dominant genres and regions, and pinpoint key cinematic "eras."
+Once the robust success metric is created, we want to apply it to all the movies in our combined dataset. This will give us an indication on how movie success (measured by box office, ratings, and sentiment) changes over time by genre and country, helping to identify shifts in dominant genres and regions, and pinpoint key cinematic "eras."
 The data will be preprocessed by grouping movies based on their genres (handling multi-genre films) and countries of origin. Then, we will calculate success metrics for each movie, aggregated by year, genre, and country.
 Using these metrics, we will create time-series data to track the success of different genres and countries over time. For each group, we will calculate the average success score, total box office revenue (adjusted for inflation), and the number of films produced.
 These trends will be analyzed in order to identify which genres and countries have been most successful at different times. For example, we might see action films rise in the 1980s or how Bollywood’s global influence grew in the 2000s. We’ll also look for cultural patterns, like the dominance of war films during WWII.
@@ -65,30 +51,30 @@ The key insights from this analysis will offer conclusions about the future dire
 Week 9 -- 11/11 - 17/11: 
 
 - [x] Finding the additional datasets needed for the idea
-- [ ] Combining the dataset and cleaning the data
-- [ ] Have Proofs of concepts for all the methods we want to use in the project
+- [x] Combining the dataset and cleaning the data
+- [x] Have Proofs of concepts for all the methods we want to use in the project
 - [x] Project P2 deadline
 
 Week 10 -- 18/11 - 24/11: 
 
-- [ ] Running the sentiment analysis on the movie critics: **Mahmoud**, **Mathieu**
+- [ ] Running the sentiment analysis on the movie critics: **Mahmoud**, **Matthieu**
 - [ ] Defining the "success" metric and testing it on selected movies to see how well it works: **Loïc**, **Léo**, **Bastien**
 
 Week 11 -- 25/11 - 01/12: 
 - [ ] Finish the first part of the project
-    - [ ] Success yearly arrays analysis to find "golden ages": **Léo**, **Mathieu**, **Bastien**
+    - [ ] Success yearly arrays analysis to find "golden ages": **Léo**, **Matthieu**, **Bastien**
     - [ ] Vizualisation of the results found: **Loïc**, **Mahmoud**
 
 Week 12 -- 02/12 - 08/12: 
 - [ ] Data vizualisation for second part: **Mahmoud**, **Bastien**
-- [ ] Using predictive models on the success yearly arrays for part 3: **Léo**, **Loïc**, **Mathieu**
+- [ ] Using predictive models on the success yearly arrays for part 3: **Léo**, **Loïc**, **Matthieu**
 
 Week 13 -- 09/12 - 15/12: 
 - [ ] Start writing the story. Will need to complete work done with more vizualisations: **Léo**, **Loïc**, **Mahmoud**
 
 Week 14 -- 16/12 - 20/12: 
 - [ ] Project P3 deadline
-    - [ ] Finish the story we want to tell: **Bastien**, **Mathieu**
+    - [ ] Finish the story we want to tell: **Bastien**, **Matthieu**
 
 ## Project Structure
 
@@ -96,14 +82,22 @@ The directory structure of new project looks like this:
 
 ```text
 ├── data                        <- Project data files
+│   ├── CMU_movie                       <- Original CMU movies dataset
+│   ├── Converter                       <- Converter dataset used to match movie ID between datasets
+│   ├── MovieLens                       <- MovieLens dataset with ratings and reviews
+│   ├── MovieSummaries                  <- MovieSummaries
 │
 ├── src                         <- Source code
 │   ├── data                            <- Data directory
 │   ├── models                          <- Model directory
 │   ├── utils                           <- Utility directory
+│   │   ├── print_prediction                    <- Printing prediction proof of concept
+│
 │   ├── scripts                         <- Shell scripts
 │
 ├── tests                       <- Tests of any kind
+│   ├── ARIMA.py                        <- Used to run the ARIMA algo
+│   ├── PolynomialRegression.py         <- Used to run the polynomial regression algorithm
 │
 ├── results.ipynb               <- a well-structured notebook showing the results
 │
