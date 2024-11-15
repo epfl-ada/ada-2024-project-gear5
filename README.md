@@ -1,16 +1,15 @@
 # ADA 2024 - Gear 5
 
-
 # Evolution of cinema through the years, finding the golden age.
 
 ## Abstract
 
 
 ## Research questions
-1. What were some of the "golden ages" of cinema through the years? (sorted by movie genre and country)
-2. What caused the success and the downfall of these "golden ages"? Can the success of certain genres be traced back to single movies?
-3. What are some of the main differences between these golden ages and the movie industry now?
-4. Is it possible to predict the next cinema golden age?
+1. What were some of the "golden ages" of cinema throughout the years? How do different genres evolve throughout the years, does localization also matter or are there global trends ?
+2. What caused the success and the downfall of these "golden ages"? Can the success of certain genres be traced back to single movies? Are there any hallmark movies of a specific genre representing the state of the industry at a specific point ? 
+3. What are some of the main differences between these golden ages and the movie industry now? 
+4. Is it possible to predict the next cinema golden age ?
 
 ## Additional datasets
 In addition to the original dataset, we are using the movielens dataset. This dataset gives us access to reviews and ratings for a wide range of movies. (Link: https://grouplens.org/datasets/movielens/) 
