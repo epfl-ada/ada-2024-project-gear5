@@ -80,8 +80,8 @@ pip install -r pip_requirements.txt
 
 ## References
 
-* [^1] : https://grouplens.org/datasets/movielens/
-* [^2] : https://www.kaggle.com/datasets/asaniczka/tmdb-movies-dataset-2023-930k-movies
+[^1] : Movielens dataset: https://grouplens.org/datasets/movielens/
+[^2] : TMDb dataset: https://www.kaggle.com/datasets/asaniczka/tmdb-movies-dataset-2023-930k-movies
 
 
 to update
