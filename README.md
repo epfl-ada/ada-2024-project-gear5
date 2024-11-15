@@ -110,16 +110,14 @@ The directory structure of new project looks like this:
 ├── src                         <- Source code
 │   ├── data                            <- Data directory
 │   ├── models    
-│		│		├── ARIMA.py                        <- Used to run the ARIMA algo
-│		│   ├── PolynomialRegression.py         <- Used to run the polynomial regression 
+│   │   ├── ARIMA.py                        <- Used to run the ARIMA algo
+│   │   ├── PolynomialRegression.py         <- Used to run the polynomial regression 
 │   ├── utils                           <- Utility directory
-│   │   ├── print_prediction                    <- Printing prediction proof of concept
-│
+│   │   ├── print_prediction                <- Printing prediction proof of concept
+│   │
 │   ├── scripts                         <- Shell scripts
 │
 ├── tests                       <- Tests of any kind
-│   ├── ARIMA.py                        <- Used to run the ARIMA algo
-│   ├── PolynomialRegression.py         <- Used to run the polynomial regression algorithm
 │
 ├── data_preparation.ipynb      <- data prep pipeline
 ├── data_exploration.ipynb      <- more fun stuff
