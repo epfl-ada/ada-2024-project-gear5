@@ -12,8 +12,9 @@
 4. Is it possible to predict the next cinema golden age ?
 
 ## Additional datasets
-In addition to the original dataset, we are using the movielens dataset. This dataset gives us access to reviews and ratings for a wide range of movies. (Link: https://grouplens.org/datasets/movielens/) 
-
+In addition to the original dataset, we are using the movielens and tmdb datasets. 
+The movielens dataset gives us access to reviews and ratings for a wide range of movies.[1] 
+The tmdb dataset allows us to have a more complete version, closer in style to the original CMU Movie one.[2]
 
 ## Methods
 
@@ -26,27 +27,14 @@ For our project, we intend on defining the relative success of a movie by combin
 
 For the sentiment analysis, we want to use [...].
 
+### Part 2 - Time-related trends analysis per genre and country
+Once the robust success metric is created, we want to apply it to all the movies in our combined dataset. One way to proceed is to group movies by the country in which they were produced, by their respective genre (NB: Movies might have more then one genre, we are going to make them appear in every genre they're assigned to.) and by the year they were produced in. From this, we are going to create arrays to track the evolution of the success of movies genres per country on a yearly basis. This is going to give us a multitude of "yearly success" arrays. These timeseries could be very useful to find major change points indicating the beginning or the end of a era.
 
-
-### Part 1 - Change point analysis success per genre per country
-Once we have a robust success metric, we want to apply it to all the movies in our combined dataset. We will then group movies by the country in which they were produced, by their genre (NB: Movies might have more then one genre, we are going to make them appear in all their genre) and by the year they were produced in. From this, we are going to create arrays to track the evolution of the success of movies genres per country on a yearly basis. 
-
-This is going to give us a multitude of "yearly success" arrays. We are going to analyze these timeseries to find major change points indicating the beginning or the end of a "Golden age". We have not yet chosen the method we are going to use for the project as multiple could be used, such as: 
-- a
-- b
-- c
-
-
-### Part 2 - 
-a
-
-
-### Part 3 - Success prediction
-Finally, in the third part of our project, we are going to use the success yearly arrays derived in part 1 to make some predictions. The aim is to predict the future state of the movie industry in terms of success. To do so, we are going to compare the performance of these different algorithms:
+### Part 3 - What about now ?
+Finally, in the third part of our project, only the subset of the last decade of movie prediction will be used to assess the state of the industry, what genre is dominating, new prevalent movie run time, or even a new key player in the industry.
+We are also going to use the insight we have gathered before through our thorough analysis to make some predictions about the direction of our lovely ship. To do so, we are going to compare the performance of these different algorithms:
 - Polynomial regression / Ridge regression: Might do the algorithms ourselves
 - Autoregressive integrated moving average (ARIMA): "statsmodel" package in python
-
-
 
 
 ## Proposed timeline
@@ -111,5 +99,23 @@ The directory structure of new project looks like this:
 ├── pip_requirements.txt        <- File for installing python dependencies
 └── README.md
 ```
-
 ## Questions for the TA
+
+## Quickstart
+
+bash
+# clone project
+git clone https://github.com/epfl-ada/ada-2024-project-gear5.git
+cd <project repo>
+
+# [OPTIONAL] create conda environment
+conda create -n <env_name> python=3.12
+conda activate <env_name>
+
+# install requirements
+pip install -r pip_requirements.txt
+
+## References
+
+[1] : https://grouplens.org/datasets/movielens/
+[2] : https://www.kaggle.com/datasets/asaniczka/tmdb-movies-dataset-2023-930k-movies
