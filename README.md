@@ -1,6 +1,20 @@
 # ADA 2024 - Gear 5
 # Evolution of cinema through the years, finding the golden age.
 
+## Quickstart
+```bash
+# clone project
+git clone https://github.com/epfl-ada/ada-2024-project-gear5.git
+cd <project repo>
+
+# [OPTIONAL] create conda environment
+conda create -n <env_name> python=3.12
+conda activate <env_name>
+
+# install requirements
+pip install -r pip_requirements.txt
+```
+
 ## Abstract
 This project delves into the evolution of cinema to explore whether a “Golden Age” has existed and to identify the key factors that define success across eras. By analyzing historical and contemporary trends in film production, genre popularity, and global appeal, we aim to uncover patterns that reflect shifts in cinematic influence and cultural resonance over time. Our approach considers both the artistic and economic dimensions of the film industry, examining how certain genres, themes, and regions rise to prominence and shape cinematic eras. Ultimately, we seek to understand where the current landscape fits within cinema’s broader history and what trends may lie ahead. Through data-driven insights, we hope to tell a compelling story of cinema’s dynamic journey and its role in reflecting and shaping society across decades.
 
@@ -13,8 +27,8 @@ This project delves into the evolution of cinema to explore whether a “Golden 
 
 ## Additional datasets
 In addition to the original dataset, we are using the movielens and tmdb datasets. 
-The movielens dataset gives us access to reviews and ratings for a wide range of movies.[^1]
-The tmdb dataset allows us to have a more complete version, closer in style to the original CMU Movie one.[^2]
+The movielens dataset gives us access to reviews and ratings for a wide range of movies[^1]. (Link: https://grouplens.org/datasets/movielens/)
+The tmdb dataset allows us to have a more complete version, closer in style to the original CMU Movie one.[^2] (Link: https://www.kaggle.com/datasets/asaniczka/tmdb-movies-dataset-2023-930k-movies)
 
 
 ## Methods
@@ -64,27 +78,13 @@ Week 14 -- 16/12 - 20/12:
 - [ ] Project P3 deadline
     - [ ] Finish the story we want to tell
 
-## Quickstart
-```bash
-# clone project
-git clone https://github.com/epfl-ada/ada-2024-project-gear5.git
-cd <project repo>
 
-# [OPTIONAL] create conda environment
-conda create -n <env_name> python=3.12
-conda activate <env_name>
-
-# install requirements
-pip install -r pip_requirements.txt
-```
 
 ## References
 
 [^1] : Movielens dataset: https://grouplens.org/datasets/movielens/
 [^2] : TMDb dataset: https://www.kaggle.com/datasets/asaniczka/tmdb-movies-dataset-2023-930k-movies
 
-
-to update
 ## Project Structure
 The directory structure of new project looks like this:
 
