@@ -4,7 +4,7 @@ from transformers import pipeline, AutoTokenizer, AutoModelForSequenceClassifica
 
 tqdm.pandas()
 
-def sentiment_analysis(reviews, sa_column):
+def sentiment_analysis(reviews, sa_column, id, output_file):
     # if invalid column name, we stop
     if sa_column not in reviews.columns:
         raise ValueError(f"The column{sa_column}doesn't exist")
@@ -21,12 +21,14 @@ def sentiment_analysis(reviews, sa_column):
     ]
     #intialize the sentiment analysis classifier
     sa_classifier = pipeline("sentiment-analysis", model=model, tokenizer=tokenizer)
-    sa = apply_sentiment_analysis(sa_classifier, reviews, sa_column)
+    sa = apply_sentiment_analysis(sa_classifier, reviews, sa_column, id, output_file)
     return sa
 
-def apply_sentiment_analysis(sa_classifier, reviews, sa_column):
+def apply_sentiment_analysis(sa_classifier, reviews, sa_column, id, output_file):
     reviews["sentiment_analysis"] = reviews[sa_column].progress_apply(lambda x: sa_classifier(x)[0] if pd.notnull(x) else None)
-    reviews["sentiment"] = reviews["sentiment_analysis"].apply(lambda x: x['label'] if pd.notnull(x) else None)
-    reviews["sentiment_score"] = reviews["sentiment_analysis"].apply(lambda x: x['score'] if pd.notnull(x) else None)
-    reviews.drop(columns=["sentiment_analysis"], inplace=True)
+    #reviews["sentiment"] = reviews["sentiment_analysis"].apply(lambda x: x['label'] if pd.notnull(x) else None)
+    #reviews["sentiment_score"] = reviews["sentiment_analysis"].apply(lambda x: x['score'] if pd.notnull(x) else None)
+    columns_to_keep = ["sentiment_analysis", id]
+    reviews = reviews[columns_to_keep]
+    reviews.to_csv(output_file, index=True)
     return reviews
