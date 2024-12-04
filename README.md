@@ -1,5 +1,6 @@
 # ADA 2024 - Gear 5
-# Evolution of cinema through the years, finding the golden age.
+
+## Evolution of cinema through the years, finding the golden age.
 
 ## Quickstart
 
@@ -15,13 +16,13 @@ conda activate <env_name>
 # install requirements
 pip install -r pip_requirements.txt
 ```
+
 ## Abstract
 
 
 This project delves into the evolution of cinema to explore whether a “Golden Age” has existed and to identify the key factors that define success across eras. By analyzing historical and contemporary trends in film production, genre popularity, and global appeal, we aim to uncover patterns that reflect shifts in cinematic influence and cultural resonance over time. Our approach considers both the artistic and economic dimensions of the film industry, examining how certain genres, themes, and regions rise to prominence and shape cinematic eras. Ultimately, we seek to understand where the current landscape fits within cinema’s broader history and what trends may lie ahead. Through data-driven insights, we hope to tell a compelling story of cinema’s dynamic journey and its role in reflecting and shaping society across decades.
 
 ## Research questions
-
 
 1. Has there ever been a "Golden Age" of cinema ? Which metrics are important to evaluate the global success of the cinema industry and, therefore, a potential "Golden Age" ?
 
@@ -31,18 +32,16 @@ This project delves into the evolution of cinema to explore whether a “Golden 
 
 ## Additional datasets
 
-
 In addition to the original dataset, we are using the movielens and tmdb datasets. 
 The movielens dataset gives us access to reviews and ratings for a wide range of movies. 
 The TMBb dataset allows us to have a more complete version, closer in style to the original CMU Movie one.
 
 ## Methods
 
-
 ### Part 1 - Defining the "Golden Age" thanks to the success metric
 
-
 For our project, we intend on defining the relative success of a movie by assessing multiple statistics. These metrics include:
+
 - One can identify the "Golden Age" based on financial success by pointing out the period when the cinema industry generated the most revenue adjusted to inflation. Analysis box office data by year and thus visualize trends to identify periods of high financial success.
 - Movie ratings from MovieLens (From the MovieLens dataset): This metric gives the general grade given to each movie on the MovieLens website. 
 - User movie ratings (From the MovieLens dataset): This metric gives the grade given by individual users on the MovieLens website. 
@@ -65,36 +64,39 @@ Next, we will examine the current trends in the industry. This includes identify
 To predict future trends, we will apply predictive models. Polynomial Regression or Ridge Regression could be used to forecast movie success based on factors like genre, cast, and release timing. We may also use ARIMA (Autoregressive Integrated Moving Average) for time-series forecasting to predict box office trends or shifts in genre popularity.
 The key insights from this analysis will offer conclusions about the future direction of the film industry. This includes identifying potential growth areas or disruptions, such as the rise of new genres, international markets, or emerging technologies in filmmaking and distribution.
 
-
 ## Proposed timeline and organization
 
-Week 9 -- 11/11 - 17/11: 
+Week 9 -- 11/11 - 17/11:
+
 - [x] Finding the additional datasets needed for the idea
 - [x] Combining the dataset and cleaning the data
 - [x] Have Proofs of concepts for all the methods we want to use in the project
 - [x] Project P2 deadline
 
-Week 10 -- 18/11 - 24/11: 
+Week 10 -- 18/11 - 24/11:
 
 - [ ] Running the sentiment analysis on the movie critics: **Mahmoud**, **Matthieu**
 - [ ] Defining the "success" metric and testing it on selected movies to see how well it works: **Loïc**, **Léo**, **Bastien**
 
-Week 11 -- 25/11 - 01/12: 
-- [ ] Finish the first part of the project
-    - [ ] Success yearly arrays analysis to find "golden ages": **Léo**, **Matthieu**, **Bastien**
-    - [ ] Vizualisation of the results found: **Loïc**, **Mahmoud**
+Week 11 -- 25/11 - 01/12:
 
-Week 12 -- 02/12 - 08/12: 
+- [ ] Finish the first part of the project
+  - [ ] Success yearly arrays analysis to find "golden ages": **Léo**, **Matthieu**, **Bastien**
+  - [ ] Vizualisation of the results found: **Loïc**, **Mahmoud**
+
+Week 12 -- 02/12 - 08/12:
+
 - [ ] Data vizualisation for second part: **Mahmoud**, **Bastien**
 - [ ] Using predictive models on the success yearly arrays for part 3: **Léo**, **Loïc**, **Matthieu**
 
+Week 13 -- 09/12 - 15/12:
 
-Week 13 -- 09/12 - 15/12: 
 - [ ] Start writing the story. Will need to complete work done with more vizualisations: **Léo**, **Loïc**, **Mahmoud**
 
-Week 14 -- 16/12 - 20/12: 
+Week 14 -- 16/12 - 20/12:
+
 - [ ] Project P3 deadline
-    - [ ] Finish the story we want to tell: **Bastien**, **Matthieu**
+  - [ ] Finish the story we want to tell: **Bastien**, **Matthieu**
 
 ## Project Structure
 
@@ -102,26 +104,21 @@ The directory structure of new project looks like this:
 
 ```text
 ├── data                        <- Project data files
-│   ├── CMU_movie                       <- Original CMU movies dataset
-│   ├── Converter                       <- Converter dataset used to match movie ID between datasets
-│   ├── MovieLens                       <- MovieLens dataset with ratings and reviews
-│   ├── MovieSummaries                  <- MovieSummaries
+│   ├── CMU_movie                   <- Original CMU movies dataset
+│   ├── Converter                   <- Converter dataset used to match movie ID between datasets
+│   ├── MovieLens                   <- MovieLens dataset with ratings and reviews
+│   ├── MovieSummaries              <- MovieSummaries
 │
 ├── src                         <- Source code
-│   ├── data                            <- Data directory
-│   ├── models    
-│   │   ├── ARIMA.py                        <- Used to run the ARIMA algo
-│   │   ├── PolynomialRegression.py         <- Used to run the polynomial regression 
-│   ├── utils                           <- Utility directory
-│   │   ├── print_prediction                <- Printing prediction proof of concept
-│   │
-│   ├── scripts                         <- Shell scripts
-│
-├── tests                       <- Tests of any kind
+│   ├── models                      <- Folder containing our models
+│   │   ├── ARIMA.py                    <- Used to run the ARIMA algo
+│   │   ├── PolynomialRegression.py     <- Used to run the polynomial regression 
+│   ├── utils                       <- Utility directory
+│   │   ├── *.py                        <- Various python scripts containing useful utilities
 │
 ├── data_preparation.ipynb      <- data prep pipeline
 ├── data_exploration.ipynb      <- more fun stuff
 ├── .gitignore                  <- List of files ignored by git
 ├── pip_requirements.txt        <- File for installing python dependencies
 ├── results.ipynb               <- a well-structured notebook showing the results
-└── README.md
+└── README.md                   <- This file
