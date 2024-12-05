@@ -1,180 +1,187 @@
 Summary
 =======
+This dataset contains raw movie data for generating the Tag Genome dataset and results of the experiments conducted in [Kotkov et al., 2021]. The Tag Genome dataset contains movie-tag pair scores which indicate the degrees to which tags apply to movies. This dataset was introduced in [Vig et al., 2012]. To generate the dataset, the authors collected the following information about movies: metadata (title, directors, actors...), movie reviews from IMDB (https://imdb.com/), ratings, tags that users attached to movies in MovieLens (https://movielens.org/) and user judgements regarding the degrees to which tags apply to movies. The authors collected user judgements with a survey in MovieLens and used these data to train and evaluate their algorithm. The algorithm is based on regression and predicts the movie-tag scores. The authors of [Kotkov et al., 2021] prepared the raw movie data for publication, refactored the programming code of the algorithm and introduced TagDL, a novel algorithm for prediction of movie-tag scores. TagDL is based on neural networks and uses the same features as the regression algorithm of [Vig et al., 2012]. The code is available in the GitHub repository via the following link: https://github.com/Bionic1251/Revisiting-the-Tag-Relevance-Prediction-Problem
 
-This dataset (ml-32m) describes 5-star rating and free-text tagging activity from [MovieLens](http://movielens.org), a movie recommendation service. It contains 32000204 ratings and 2000072 tag applications across 87585 movies. These data were created by 200948 users between January 09, 1995 and October 12, 2023. This dataset was generated on October 13, 2023.
+Please note that this dataset is slightly different from those used in [Vig et al., 2012] and [Kotkov et al., 2021]. However, experimental results based in this dataset very closely match the results reported in the publications.
 
-Users were selected at random for inclusion. All selected users had rated at least 20 movies. No demographic information is included. Each user is represented by an id, and no other information is provided.
+The structure of this dataset partly follows the structure of the data folder in the GitHub repository above. This dataset contains raw input data for the algorithms, features generated based on these data, evaluation results of the prediction algorithms and Tag Genome relevance scores. The structure of the dataset is as follows:
 
-The data are contained in the files `links.csv`, `movies.csv`, `ratings.csv` and `tags.csv`. More details about the contents and use of all these files follows.
+├─── raw – raw movie data
+│   ├─metadata.json – movie data, such as cast, directors and average rating
+│   ├─ratings.json – ratings user gave to movies in MovieLens
+│   ├─reviews.json – movie reviews collected from IMDB
+│   ├─survey_answers.json – user answers to the survey questions regarding the degree, to which a tag applies to a movie
+│   ├─tag_count.json – numbers of times users attached tags to movies
+│   └─tags.json – tags and tag ids
+│
+├─── scores – Tag Genome scores that indicate degree, with which tags apply to movies
+│   ├─glmer.csv – scores generated based on the method from the regression algorithm of [Vig et al., 2012]
+│   └─tagdl.csv - scores generated based on TagDL [Kotkov et al., 2021]
+│
+├─── processed
+│   ├─features_r.csv - user survey answers along with movie-tag features
+│   └─10folds – features_r.csv split into 10 folds
+│     ├─test0.csv – test for fold 0
+│     ├─...
+│     ├─test9.csv – test for fold 9
+│     ├─train0.csv – train for fold 0
+│     ├─...
+│     └─train9.csv – train for fold 9
+│
+└─── predictions – results of the regression [Vig et al., 2012] and the TagDL [Kotkov et al., 2021] prediction algorithms
+    ├─performance_results_tenfolds.txt – mean absolute error summary
+    ├─tagdl_predictions_fold_0.txt – predictions of TagDL for fold 0
+    ├─...
+    ├─tagdl_predictions_fold_9.txt – predictions of TagDL for fold 9
+    ├─glmer_predictions_fold_0.txt – predictions of regression for fold 0
+    ├─...
+    └─ glmer_predictions_fold_9.txt – predictions of regression for fold 9
 
-This and other GroupLens data sets are publicly available for download at <http://grouplens.org/datasets/>.
 
 
 Usage License
 =============
 
-Neither the University of Minnesota nor any of the researchers involved can guarantee the correctness of the data, its suitability for any particular purpose, or the validity of results based on the use of the data set. The data set may be used for any research purposes under the following conditions:
-
-* The user may not state or imply any endorsement from the University of Minnesota or the GroupLens Research Group.
-* The user must acknowledge the use of the data set in publications resulting from the use of the data set (see below for citation information).
-* The user may redistribute the data set, including transformations, so long as it is distributed under these same license conditions.
-* The user may not use this information for any commercial or revenue-bearing purposes without first obtaining permission from a faculty member of the GroupLens Research Project at the University of Minnesota.
-* The executable software scripts are provided "as is" without warranty of any kind, either expressed or implied, including, but not limited to, the implied warranties of merchantability and fitness for a particular purpose. The entire risk as to the quality and performance of them is with you. Should the program prove defective, you assume the cost of all necessary servicing, repair or correction.
-
-In no event shall the University of Minnesota, its affiliates or employees be liable to you for any damages arising out of the use or inability to use these programs (including but not limited to loss of data or data being rendered inaccurate).
-
-If you have any further questions or comments, please email <grouplens-info@umn.edu>
-
+This work is licensed under the Creative Commons Attribution-NonCommercial 3.0 License.
 
 Citation
 ========
 
-To acknowledge use of the dataset in publications, please cite the following paper:
+To acknowledge use of the dataset in publications, please cite both of the following papers:
 
-> F. Maxwell Harper and Joseph A. Konstan. 2015. The MovieLens Datasets: History and Context. ACM Transactions on Interactive Intelligent Systems (TiiS) 5, 4: 19:1–19:19. <https://doi.org/10.1145/2827872>
+[Kotkov et al., 2021] Kotkov, D., Maslov, A., and Neovius, M. (2021). Revisiting the tag relevance prediction problem. In Proceedings of the 44th International ACM SIGIR conference on Research and Development in Information Retrieval. https://doi.org/10.1145/3404835.3463019
 
+[Vig et al., 2012] Vig, J., Sen, S., and Riedl, J. (2012). The tag genome: Encoding community knowledge to support novel interaction. ACM Trans. Interact. Intell. Syst., 2(3):13:1–13:44. https://doi.org/10.1145/2362394.2362395
 
-Further Information About GroupLens
-===================================
-
-GroupLens is a research group in the Department of Computer Science and Engineering at the University of Minnesota. Since its inception in 1992, GroupLens's research projects have explored a variety of fields including:
-
-* recommender systems
-* online communities
-* mobile and ubiquitious technologies
-* digital libraries
-* local geographic information systems
-
-GroupLens Research operates a movie recommender based on collaborative filtering, MovieLens, which is the source of these data. We encourage you to visit <http://movielens.org> to try it out! If you have exciting ideas for experimental work to conduct on MovieLens, send us an email at <grouplens-info@cs.umn.edu> - we are always interested in working with external collaborators.
-
-
-Content and Use of Files
+Acknowledgements
 ========================
+We would like to thank GroupLens for providing us with the dataset and code for the regression algorithm [Vig et al., 2012]. We would also like to thank organizations that supported publication of this dataset: the Academy of Finland, grant #309495 (the LibDat project) and the Academy of Finland Flagship programme: Finnish Center for Artificial Intelligence FCAI.
 
-Verifying the Dataset Contents
-------------------------------
+Files
+========================
+The dataset files contain json objects (one line per object). The files are encoded as UTF-8. User ids (user_id), tag ids (tag_id) and movie ids (item_id) are consistent across all files of the dataset.
 
-The following files (with the provided [MD5 checksums](http://en.wikipedia.org/wiki/Md5sum)) should be present in this zip file:
-
-
-| MD5 | File |
-| --- | --- |
-| 8f033867bcb4e6be8792b21468b4fa6e | links.csv |
-| 0df90835c19151f9d819d0822e190797 | movies.csv |
-| cf12b74f9ad4b94a011f079e26d4270a | ratings.csv |
-| 963bf4fa4de6b8901868fddd3eb54567 | tags.csv |
-
-
-We encourage you to verify that the dataset you have on your computer is identical to the ones hosted at [grouplens.org](http://grouplens.org).  This is an important step if you downloaded the dataset from a location other than [grouplens.org](http://grouplens.org), or if you wish to publish research results based on analysis of the MovieLens dataset.
-
-To verify the dataset (after unzipping):
-
-    # on linux
-    md5sum *; cat checksums.txt
-
-    # on OSX
-    md5 *; cat checksums.txt
-
-    # windows users can download a tool from Microsoft (or elsewhere) that verifies MD5 checksums
-
-Check that the two lines of output contain the same hash value.
-
-
-Formatting and Encoding
------------------------
-
-The dataset files are written as [comma-separated values](http://en.wikipedia.org/wiki/Comma-separated_values) files with a single header row. Columns that contain commas (`,`) are escaped using double-quotes (`"`). These files are encoded as UTF-8. If accented characters in movie titles or tag values (e.g. Misérables, Les (1995)) display incorrectly, make sure that any program reading the data, such as a text editor, terminal, or script, is configured for UTF-8.
-
-
-User Ids
+Folder `raw`
 --------
-
-MovieLens users were selected at random for inclusion. Their ids have been anonymized. User ids are consistent between `ratings.csv` and `tags.csv` (i.e., the same id refers to the same user across the two files).
-
-
-Movie Ids
----------
-
-Only movies with at least one rating or tag are included in the dataset. These movie ids are consistent with those used on the MovieLens web site (e.g., id `1` corresponds to the URL <https://movielens.org/movies/1>). Movie ids are consistent between `ratings.csv`, `tags.csv`, `movies.csv`, and `links.csv` (i.e., the same id refers to the same movie across these four data files).
+The folder contains raw movie data.
 
 
-Ratings Data File Structure (ratings.csv)
------------------------------------------
+raw/metadata.json
+--------
+The file contains information about movies from MovieLens - 84,661 lines of json objects that have the following fields:
+title – movie title (84,484 unique titles)
+directedBy – directors separated by comma (‘,’)
+starring – actors separated by comma (‘,’)
+dateAdded – date, when the movie was added to MovieLens
+avgRating – average rating of a movie on MovieLens
+imdbId – movie id on the IMDB website (84,661 unique ids)
+item_id – movie id, which is consistent across files (84,661 unique ids)
+Example line:
+{"title": "Toy Story (1995)", "directedBy": "John Lasseter", "starring": "Tim Allen, Tom Hanks, Don Rickles, Jim Varney, John Ratzenberger, Wallace Shawn, Laurie Metcalf, John Morris, R. Lee Ermey, Annie Potts", "dateAdded": null, "avgRating": 3.89146, "imdbId": "0114709", "item_id": 1}
 
-All ratings are contained in the file `ratings.csv`. Each line of this file after the header row represents one rating of one movie by one user, and has the following format:
+raw/reviews.json
+--------
+The file contains 2,624,608 lines of movie reviews collected from the IMDB website. The json objects have the following fields:
+item_id – movie id (52,081 unique ids)
+txt – review text
+Example line:
+{"item_id": 172063, "txt": "one-shot record of a belly dancer; \"Carmencita Dancing,\" one of a series of Edison short films featuring \r circus and vaudeville acts, displayed the... um... \"talents\" of a zaftig belly-dancer who agreed to undulate before the camera of the famous \"Black \r Maria\" studio. \r \r The dance was originally intended to be played in a Kinetoscope, a single -person arcade viewer connected to Edison's more famous invention, the phonograph. Through a pair of crude headphones, the latter device supplied an asynchronous soundtrack of \"hootchie-cootchie\" music. \r \r The Kinetograph camera here employed is so new -- even to its inventors \r -- that director Dickson has drastically \"overcranked\" the film, unintentionally producing one of the first examples of slow-motion.\r \r Carmencita's titillating movements were considered by many to be \r scandalous. Thus, the film prompted some of the earliest discussions of film censorship."}
 
-    userId,movieId,rating,timestamp
+raw/tags.json
+--------
+The file contains 1,094 lines of json objects with the following fields:
+tag – tag string
+id – tag id (1,094 unique)
+Example line:
+{"tag": "whitewash", "id": 1}
 
-The lines within this file are ordered first by userId, then, within user, by movieId.
-
-Ratings are made on a 5-star scale, with half-star increments (0.5 stars - 5.0 stars).
-
-Timestamps represent seconds since midnight Coordinated Universal Time (UTC) of January 1, 1970.
-
-
-Tags Data File Structure (tags.csv)
------------------------------------
-
-All tags are contained in the file `tags.csv`. Each line of this file after the header row represents one tag applied to one movie by one user, and has the following format:
-
-    userId,movieId,tag,timestamp
-
-The lines within this file are ordered first by userId, then, within user, by movieId.
-
-Tags are user-generated metadata about movies. Each tag is typically a single word or short phrase. The meaning, value, and purpose of a particular tag is determined by each user.
-
-Timestamps represent seconds since midnight Coordinated Universal Time (UTC) of January 1, 1970.
-
-
-Movies Data File Structure (movies.csv)
----------------------------------------
-
-Movie information is contained in the file `movies.csv`. Each line of this file after the header row represents one movie, and has the following format:
-
-    movieId,title,genres
-
-Movie titles are entered manually or imported from <https://www.themoviedb.org/>, and include the year of release in parentheses. Errors and inconsistencies may exist in these titles.
-
-Genres are a pipe-separated list, and are selected from the following:
-
-* Action
-* Adventure
-* Animation
-* Children's
-* Comedy
-* Crime
-* Documentary
-* Drama
-* Fantasy
-* Film-Noir
-* Horror
-* Musical
-* Mystery
-* Romance
-* Sci-Fi
-* Thriller
-* War
-* Western
-* (no genres listed)
+raw/tag_count.json
+--------
+The file contains numbers of times MovieLens users attached tags to movies. The file contains 212,704 lines of json objects with the following fields:
+item_id – movie id (39,685 unique ids)
+tag_id – tag id (1,094 unique ids)
+num – number of times users have attached the tag to the movie
+Example line:
+{"item_id": 1, "tag_id": 2198, "num": 2}
 
 
-Links Data File Structure (links.csv)
----------------------------------------
+raw/ratings.json
+--------
+The file contains ratings that users assigned to movies in MovieLens. Each rating represents the degree, to which the user enjoyed watching the movie. Each rating corresponds to a number of stars from 0.5 till 5 with the granularity of 0.5 star. The higher the rating, the higher the enjoyment. The file contains 28,490,116 lines of json objects with the following fields:
+item_id – movie id (67,873 unique ids)
+user_id – user id (247,383 unique ids)
+rating – the number of stars
+Example line:
+{"item_id": 5, "user_id": 997206, "rating": 3.0}
 
-Identifiers that can be used to link to other sources of movie data are contained in the file `links.csv`. Each line of this file after the header row represents one movie, and has the following format:
-
-    movieId,imdbId,tmdbId
-
-movieId is an identifier for movies used by <https://movielens.org>. E.g., the movie Toy Story has the link <https://movielens.org/movies/1>.
-
-imdbId is an identifier for movies used by <http://www.imdb.com>. E.g., the movie Toy Story has the link <http://www.imdb.com/title/tt0114709/>.
-
-tmdbId is an identifier for movies used by <https://www.themoviedb.org>. E.g., the movie Toy Story has the link <https://www.themoviedb.org/movie/862>.
-
-Use of the resources listed above is subject to the terms of each provider.
+raw/survey_answers.json
+--------
+The file contains ratings MovieLens users gave to movie-tag pairs in the survey. The users were asked to indicate the degree, to which a tag applies to a movie on a 5-point scale from the tag not applying at all (1 point) to applying very strongly (5 points). Users could also indicate that they are not sure about the degree (the -1 value). The file contains 58,903 lines of json objects with the following fields:
+user_id – user id (679 unique ids)
+item_id – movie id (5,546 unique ids)
+tag_id – tag id (1,094 unique ids)
+score – movie-tag rating, which takes values: 1 (`not at all`), 2, 3, 4, 5 (`very much`) and -1 (`not sure`)
+Example line:
+{"user_id": 978707, "item_id": 3108, "tag_id": 50126, "score": 3}
 
 
-Cross-Validation
-----------------
+Folder `processed`
+--------
+The folder contains features generated based on the raw movie data.
 
-Prior versions of the MovieLens dataset included either pre-computed cross-folds or scripts to perform this computation. We no longer bundle either of these features with the dataset, since most modern toolkits provide this as a built-in feature. If you wish to learn about standard approaches to cross-fold computation in the context of recommender systems evaluation, see [LensKit](http://lenskit.org) for tools, documentation, and open-source code examples.
+processed/features_r.csv
+--------
+The file contains features of movie-tag pairs along with user survey answers with excluded `not sure` (-1) ratings. These features are calculated based on the raw data and used to generate movie-tag scores of Tag Genome by regression and TagDL. The file contains 51,162 lines and has the csv format with the following fields:
+tag – tag string
+item_id – movie id (5,192 unique ids)
+log_IMDB – log of frequency with which the corresponding tag appears in text reviews of the movie
+log_IMDB_nostem – the same as the previous field, but without stemming
+rating_similarity - cosine similarity between ratings of the corresponding movie and aggregated ratings of movies tagged with the tag
+avg_rating – average MovieLens rating of the movie
+tag_exists - 1 if the tag has been applied to the movie and 0 otherwise
+lsi_tags_75 - similarity between the tag and the movie using latent semantic indexing, where each document is the set of tags applied to the movie
+lsi_imdb_175 - similarity between the tag and the movie using latent semantic indexing, where each document is the set of words in user reviews of the movie
+tag_prob – the score predicted by a regression model using tag_exists as the output variable and the other features as the input variables
+targets – user answers to survey questions
+Example lines:
+tag,item_id,log_IMDB,log_IMDB_nostem,rating_similarity,avg_rating,tag_exists,lsi_tags_75,lsi_imdb_175,tag_prob,targets
+007,63113,1.75330436544309,2.27542404932756,1.71434828208978,-0.698401990607001,1.33220801542758,2.6985291947824,2.74139820850471,1.29043570541653,5
+007,63113,1.75330436544309,2.27542404932756,1.71434828208978,-0.698401990607001,1.33220801542758,2.6985291947824,2.74139820850471,1.29043570541653,5
+007,49272,1.90178729254183,2.4765957047332,0.710586261523279,0.457945907102739,1.33220801542758,2.82316470188989,2.37457040636021,1.16739829356456,5
+
+Folder `processed/10folds`
+--------
+This folder contains 10-fold split of features_r.csv
+
+
+Folder `scores`
+--------
+The folder contains Tag Genome scores that indicate degrees, with which tags apply to movies. To generate these files, we used ids of movies from the dataset released with the Tag Genome publication and tags used in the survey [Vig et al., 2012]. In case these files are missing necessary movies or tags, you can generate them with the code provided in the GitHub repository (see the link above).
+
+scores/glmer.csv
+--------
+The file contains 10,551,656 Tag Genome scores between 0 and 1. The scores have been generated with the regression algorithm of [Vig et al., 2012]. The file has the csv format and contains the following fields:
+tag - tag string (1,084 unique tags)
+item_id - movie id (9,734 unique ids)
+score - degree, with which the tag applies to the movie
+Example lines:
+tag,item_id,score
+airplane,2,0.042390835398958
+airplane,3,0.0506732208371692
+airplane,4,0.0331609987530869
+
+scores/tagdl.csv
+--------
+The file contains 10,551,656 Tag Genome scores between -0.07 and 1.13 (due to the prediction algorithm design). The scores have been generated with TagDL [Kotkov et al., 2021]. The file has the csv format and contains the following fields:
+tag - tag string (1,084 unique tags)
+item_id - movie id (9,734 unique ids)
+score - degree, with which the tag applies to the movie
+Example lines:
+tag,item_id,score
+airplane,2,0.006687045
+airplane,3,0.0042806566
+airplane,4,-0.00016063452
+
+Folder `predictions`
+--------
+The folder contains predictions of algorithms based on movie-tag features. Files from tagdl_predictions_fold_0.txt to tagdl_predictions_fold_9.txt contain predictions of TagDL, while files from glmer_predictions_fold_0.txt to glmer_predictions_fold_9.txt contain predictions of the regression model. The prediction scores in these files correspond to test files in the 10folds folder. The file performance_results_tenfolds.txt contains mean absolute errors for each fold.
