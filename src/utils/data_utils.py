@@ -61,3 +61,12 @@ def merge_cmu_tmdb_combine_columns(full_reduced):
     full_reduced["Box_Office"] = full_reduced["movie_box_office_revenue_nan"].combine_first(full_reduced["revenue_nan"])
     full_reduced.drop(columns=['movie_box_office_revenue', 'revenue', "movie_box_office_revenue_nan", "revenue_nan"], inplace=True)
     return full_reduced
+
+def combine_ratings(data_box_office):
+    data_box_office['avgRating_safe'] = data_box_office['avgRating'].combine_first(data_box_office['vote_avg'])
+    data_box_office['vote_safe'] = data_box_office['vote_avg'].combine_first(data_box_office['avgRating'])
+    data_box_office['avgRating_safe'].fillna(0, inplace=True)
+    data_box_office['vote_safe'].fillna(0, inplace=True)
+    data_box_office['rating'] = 0.5 * (data_box_office['avgRating_safe'] + data_box_office['vote_safe'])
+    data_box_office.drop(columns=['avgRating', 'vote_avg', 'avgRating_safe', 'vote_safe'], inplace=True)
+    return data_box_office
