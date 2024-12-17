@@ -12,7 +12,6 @@ def sentiment_analysis(reviews, sa_column, item_id, index ,output_file):
         if column not in reviews.columns:
             raise ValueError(f"The column {column} doesn't exist")
     # Loading a Pre-Trained Model from HuggingFace Hub
-    #model_name = "cardiffnlp/twitter-roberta-base-sentiment"
     model_name = "distilbert-base-uncased-finetuned-sst-2-english"
     print(model_name)
     tokenizer = AutoTokenizer.from_pretrained(model_name)
