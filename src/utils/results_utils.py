@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+from sklearn.preprocessing import MinMaxScaler
 
 # function to print the size of the dataframe
 def print_df_size(name, df):
@@ -71,13 +72,21 @@ def combine_ratings(data_box_office):
     data_box_office.drop(columns=['avgRating', 'vote_avg', 'avgRating_safe', 'vote_safe'], inplace=True)
     return data_box_office
 
-def success(data_box_office):
+def success(data_box_office, popularity, box_office, sa_score, rating):
     weights = {
-        'popularity': 10,
-        'inflation_adjusted_box_office_revenue': 8,
-        'sa_score': 3,
-        'rating': 3
+         popularity: 10,
+        box_office: 8,
+        sa_score: 3,
+        rating: 3
     }
     data_box_office['success_score'] = data_box_office.apply(
         lambda row: sum(row[col] * weight for col, weight in weights.items()), axis=1)
+    # Just a scaling if we want our metric between 0 and 5 like regulare movie ratings
+
+    # Initialize the MinMaxScaler to scale between 0 and 5
+    scaler = MinMaxScaler(feature_range=(0, 5))
+
+    # Fit and transform the Success_metric column
+    data_box_office['success_metric_scaled'] = scaler.fit_transform(data_box_office[['success_score']])
+    data_box_office = data_box_office.sort_values(by='success_metric_scaled', ascending=False)
     return data_box_office
