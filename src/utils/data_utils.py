@@ -70,3 +70,14 @@ def combine_ratings(data_box_office):
     data_box_office['rating'] = 0.5 * (data_box_office['avgRating_safe'] + data_box_office['vote_safe'])
     data_box_office.drop(columns=['avgRating', 'vote_avg', 'avgRating_safe', 'vote_safe'], inplace=True)
     return data_box_office
+
+def success(data_box_office):
+    weights = {
+        'popularity': 10,
+        'inflation_adjusted_box_office_revenue': 8,
+        'sa_score': 3,
+        'rating': 3
+    }
+    data_box_office['success_score'] = data_box_office.apply(
+        lambda row: sum(row[col] * weight for col, weight in weights.items()), axis=1)
+    return data_box_office
