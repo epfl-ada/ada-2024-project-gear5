@@ -4,3 +4,4 @@ src/models/__pycache__/ARIMA.cpython-311.pyc
 src/models/__pycache__/PolynomialRegression.cpython-311.pyc
 src/utils/__pycache__/print_prediction.cpython-311.pyc
 src/utils/__pycache__/print_prediction.cpython-311.pyc
+src/utils/__pycache__/print_prediction.cpython-311.pyc
