@@ -72,7 +72,6 @@ def impact_genre(movies_df):
     polynomial_trend = np.polyval(coefficients, time_numeric)
     impact_series = impact_series - polynomial_trend
 
-    mean_timeseries = impact_series.mean()
-    impact_series = (impact_series - mean_timeseries)/100000
+    impact_series = (impact_series)/100000
     
     return impact_series
