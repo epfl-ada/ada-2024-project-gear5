@@ -1,4 +1,5 @@
 from statsmodels.tsa.arima.model import ARIMA
+import time
 
 def arima(train, order=(2, 1, 2), n_forecast=20):
     
