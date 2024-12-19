@@ -1,5 +1,10 @@
 import pandas as pd
 import numpy as np
+from scipy.optimize import curve_fit
+
+
+def exponential_func(x, a, b, c):
+    return a * np.exp(b * x) + c
 
 def impact_genre(movies_df):
     ###
@@ -30,15 +35,23 @@ def impact_genre(movies_df):
 
     first_derivative_series = pd.Series(0.0, time_index)
 
+    movies_df['year'] = movies_df['combined_release_date'].dt.year
+    yearly_counts = movies_df.groupby('year').size()
+    yearly_counts_normalized = yearly_counts / yearly_counts.max()
+
 
     for _, row in movies_df.iterrows():
         event_time = row["combined_release_date"]
         spike_value = row["success_score"] 
 
+        '''year = event_time.year
+        weight = 1 - yearly_counts_normalized.get(year, 0) 
+        spike_value *= weight'''
+
         # We make sure that more successful movies have more of an impact. Want the transformation we apply to still be continuous. 
-        spike_value = 50 * (1 / (1 + np.exp(-0.5 * (spike_value - (mean_success_genre + 3)))))
+        spike_value = 5 * (1 / (1 + np.exp(-0.5 * (spike_value - (mean_success_genre + 3)))))
 
-
+        
 
 
         '''if ((spike_value > 1) & (spike_value < 2)):
@@ -69,5 +82,13 @@ def impact_genre(movies_df):
 
     
     impact_series = first_derivative_series.cumsum()
+
+    # We fit an exponential to remove the trend -> More movies = more success
+    '''time_numeric = np.arange(len(impact_series))
+    initial_guesses = [1.0, 0.001, 50]
+    popt, _ = curve_fit(exponential_func, time_numeric, impact_series.values,  p0=initial_guesses, maxfev=10000)
+    fitted_trend = exponential_func(time_numeric, *popt)
+    impact_series = impact_series - fitted_trend'''
+
 
     return impact_series
