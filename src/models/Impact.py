@@ -35,33 +35,16 @@ def impact_genre(movies_df):
 
     first_derivative_series = pd.Series(0.0, time_index)
 
-    movies_df['year'] = movies_df['combined_release_date'].dt.year
-    yearly_counts = movies_df.groupby('year').size()
-    yearly_counts_normalized = yearly_counts / yearly_counts.max()
-
-
     for _, row in movies_df.iterrows():
         event_time = row["combined_release_date"]
         spike_value = row["success_score"] 
 
-        '''year = event_time.year
-        weight = 1 - yearly_counts_normalized.get(year, 0) 
-        spike_value *= weight'''
-
         # We make sure that more successful movies have more of an impact. Want the transformation we apply to still be continuous. 
-        spike_value = 5 * (1 / (1 + np.exp(-0.5 * (spike_value - (mean_success_genre + 3)))))
-
-        
-
-
-        '''if ((spike_value > 1) & (spike_value < 2)):
-            spike_value = np.power(spike_value, spike_value)
-        elif (spike_value >= 2):
-            spike_value = np.power(1.4, spike_value)'''
+        spike_value = 10 * (1 / (1 + np.exp(-0.5 * (spike_value - (mean_success_genre + 2)))))
             
         # We change the duration of the linear growth depending on the impact of the movie 
         base_duration = 30  
-        linear_duration = int(base_duration * (1 + spike_value/2))
+        linear_duration = int(base_duration * (1 + spike_value*4))
 
 
         # We first add a linear growth. The length of this linear growth depends on the success of the movie.
@@ -83,12 +66,13 @@ def impact_genre(movies_df):
     
     impact_series = first_derivative_series.cumsum()
 
-    # We fit an exponential to remove the trend -> More movies = more success
-    '''time_numeric = np.arange(len(impact_series))
-    initial_guesses = [1.0, 0.001, 50]
-    popt, _ = curve_fit(exponential_func, time_numeric, impact_series.values,  p0=initial_guesses, maxfev=10000)
-    fitted_trend = exponential_func(time_numeric, *popt)
-    impact_series = impact_series - fitted_trend'''
+    # We fit an polynomial to remove the trend -> More movies = more success
+    time_numeric = np.arange(len(impact_series))
+    coefficients = np.polyfit(time_numeric, impact_series, deg=2)
+    polynomial_trend = np.polyval(coefficients, time_numeric)
+    impact_series = impact_series - polynomial_trend
 
-
+    mean_timeseries = impact_series.mean()
+    impact_series = (impact_series - mean_timeseries)/100000
+    
     return impact_series

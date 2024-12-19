@@ -90,3 +90,6 @@ def success(data_box_office, popularity, box_office, sa_score, rating):
     data_box_office['success_metric_scaled'] = scaler.fit_transform(data_box_office[['success_score']])
     data_box_office = data_box_office.sort_values(by='success_metric_scaled', ascending=False)
     return data_box_office
+
+def get_decade(year):
+    return (year // 10) * 10
