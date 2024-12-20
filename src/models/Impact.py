@@ -26,7 +26,7 @@ def impact_genre(movies_df):
 
     time_index = pd.date_range(
         start = date_min - pd.Timedelta(days=100), 
-        end = date_max + pd.Timedelta(days=100), 
+        end = date_max + pd.Timedelta(days=365), 
         freq = 'D'
     )
 
