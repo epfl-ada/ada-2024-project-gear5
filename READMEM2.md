@@ -1,13 +1,4 @@
 # ADA 2024 - Gear 5
-<hr style="clear:both">
-
-This notebook presents our results for the ADA Milestone 3 project. More precisely, we present how we created our success metric, how we computed past "golden age" for each genre and how we used impact time series to make future predictions. For better comprehension of the different techniques such as the prediction method, see the `methods.ipynb` notebook.
-
-
-**Project Mentor:** [Shuo Wen](http://personnes.epfl.ch/shuo.wen) ([Email](shuo.wen@epfl.ch)),
-**Authors:** Mahmoud Dokmak, Matthieu Borello, Léo Brunneau, Loïc Domingos, Bastien Armstrong
-
-<hr style="clear:both">
 
 # Evolution of cinema through the years, finding the golden age
 
