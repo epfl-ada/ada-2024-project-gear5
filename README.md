@@ -89,7 +89,7 @@ The directory structure of new project looks like this:
 │   ├── Converter                       <- Converter dataset used to match movie IDs
 │   ├── MovieLens                       <- MovieLens dataset with ratings and reviews
 │   ├── MovieSummaries                  <- Movie Summaries
-│   ├── TMDBMovies                      <- TMDB Movies dataset to enrich the original dataset
+│   └── TMDBMovies                      <- TMDB Movies dataset to enrich the original dataset
 │
 ├── plots                       <- Our html plots
 ├── src                         <- Source code
@@ -98,12 +98,12 @@ The directory structure of new project looks like this:
 │   │   ├── ARIMA.py                        <- Used to run the ARIMA algo
 │   │   ├── PolynomialRegression.py         <- Used to run the polynomial regression 
 │   │   ├── Impact.py                       <- Used to calculate impact of a given genre
-│   │   ├── sentiment_analysis.py           <- Used to calculate impact of a given genre
+│   │   └── sentiment_analysis.py           <- Used to calculate impact of a given genre
 │   │  
 │   ├── utils                           <- Utility directory
-│   │   │
-│   │   ├── print_prediction.py             <- Printing prediction proof of concept
-│   │   ├── result_utils.py                 <- Utilities
+│       │
+│       ├── print_prediction.py             <- Printing prediction proof of concept
+│       └── result_utils.py                 <- Utilities
 │
 ├── .gitignore                  <- List of files ignored by git
 ├── requirements.txt            <- File for installing python dependencies
