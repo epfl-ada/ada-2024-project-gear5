@@ -58,10 +58,10 @@ For our project, we intend on defining the relative success of a movie by assess
   - Vote average
   - Previous day's popularity score
 - The box office revenue of a movie adjusted for inflation. One can identify the "Golden Age" based on financial success by pointing out the period when the cinema industry generated the most revenue adjusted to inflation.
-- User movie ratings (from the MovieLens dataset). This metric gives the grade given by individual users on the MovieLens website. Viewers opinions are important to assess the success of a movie.
+- User movie ratings (from [MovieLens Tag Genome Dataset 2021](https://grouplens.org/datasets/movielens/)). This metric gives the grade given by individual users on the MovieLens website. Viewers opinions are important to assess the success of a movie.
 - Reviews sentiment analysis (from [MovieLens Tag Genome Dataset 2021](https://grouplens.org/datasets/movielens/)) dataset: We run sentiment analysis on reviews, defining if they are positive or negative, and thus assess the again the viewers' point of view. For the sentiment analysis, we use a pretrained Bert model and a pretrained tokenizer available on HugginFace [here](https://huggingface.co/distilbert/distilbert-base-uncased-finetuned-sst-2-english).
 
-We define the "Golden Age" per genre as the decade where the average success score is the highest. We will also look at the average success score per year to identify the "Golden Age" of cinema in general. This will allow us to identify the most successful genres and periods in cinema history.
+We define the "Golden Age" per genre as the decade where the average success score is the highest. This will allow us to identify the most successful genres and periods in cinema history.
 
 ### Part 2 - Time-related trends analysis per genre and country
 
