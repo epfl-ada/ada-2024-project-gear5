@@ -74,11 +74,18 @@ This analysis will allow us to define cinematic "eras" based on dominant genres 
 
 ### Part 3 - What about now ?
 
-Here, our goal is to assess the current state of the film industry by analyzing trends from the past decade and using this data to predict future movie success and industry directions.
-First, the analysis will focus on movies released in the last 10 years. By filtering the data to this timeframe, we can analyze key metrics such as box office performance, genre popularity, movie runtimes, and the impact of emerging trends like streaming. This will give us a clear picture of where the industry stands today.
-Next, we will examine the current trends in the industry. This includes identifying which genres are most successful right now, such as superhero films or streaming-exclusive releases. We will also look for new genres or countries that are gaining popularity. Additionally, tracking movie length trends will help determine whether films are getting longer or shorter, and we will explore how streaming platforms are influencing traditional theatrical releases.
-To predict future trends, we will apply predictive models. Polynomial Regression or Ridge Regression could be used to forecast movie success based on factors like genre, cast, and release timing. We may also use ARIMA (Autoregressive Integrated Moving Average) for time-series forecasting to predict box office trends or shifts in genre popularity.
-The key insights from this analysis will offer conclusions about the future direction of the film industry. This includes identifying potential growth areas or disruptions, such as the rise of new genres, international markets, or emerging technologies in filmmaking and distribution.
+Here, our goal is to compile all the information from our success metric into time-series to make predictions. Our objective is to then use predictive models on these time-series to evalute the future state of the movie industry. We have chosen to use the ARIMA (Autoregressive Integrated Moving Average) model and we are going to compare it's predictions against a simple 2nd order polynomial regression. Some further details into the reasons for this choice and into how we applied these methods are available in the `methods.ipynb` notebook. 
+Our plan is to first show that the impact time-series (that take as input the success metric) work well. We have set two conditions that we wanted to respect when creating these series for them to be meaningful:
+- More success = More impact. This makes sense, but we truely wanted high success movie to have a vastly greater impact and low success movies to have a nearly negligible impact.
+- Causality. We did not want the success of the movie to have an impact before before it's release date. This disqualified algorithms such as gaussian kernel regression from contention. 
+
+NB: Once again, more details on the methods we used to achieve this are available in the `methods.ipynb` notebook.
+
+We are then going to compare the prediction results we obtain from the two models we have chosen. We expect the polynomial regression to perform worse as it's a "simplistic" prediction, but it can serve as a sort of baseline to judge the results of the ARIMA model.
+
+Finally, we are going to reveal the movie genre which will according to us have the most impact of the industry in future years.
+
+
 
 ## Project timeline
 
