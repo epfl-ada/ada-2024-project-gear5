@@ -1,15 +1,12 @@
-# ADA 2024 - Gear 5
-<hr style="clear:both">
+# ADA 2024 - Gear 5: Evolution of cinema through the years, finding the golden age
 
-This notebook presents our results for the ADA Milestone 3 project. More precisely, we present how we created our success metric, how we computed past "golden age" for each genre and how we used impact time series to make future predictions. For better comprehension of the different techniques such as the prediction method, see the `methods.ipynb` notebook.
-
-
+ 
 **Project Mentor:** [Shuo Wen](http://personnes.epfl.ch/shuo.wen) ([Email](shuo.wen@epfl.ch)),
 **Authors:** Mahmoud Dokmak, Matthieu Borello, Léo Brunneau, Loïc Domingos, Bastien Armstrong
 
 <hr style="clear:both">
 
-# Evolution of cinema through the years, finding the golden age
+
 
 ## Quickstart
 
@@ -39,10 +36,9 @@ This project delves into the evolution of cinema to explore whether a “Golden 
 3. What about now ? Are we in a specific era ? What are the past decade trends and what could we infer from this ? Can we build a strong metric that predicts a future trend and, therefore, a movie success ?
 
 ## Additional datasets
-
-In addition to the original dataset, we are using the movielens and tmdb datasets.
-The movielens dataset gives us access to reviews and ratings for a wide range of movies.
-The TMBb dataset allows us to have a more complete version, closer in style to the original CMU Movie one.
+In addition to the original dataset [CMU Movie Summary Corpus](http://www.cs.cmu.edu/~ark/personas/), we are using the [MovieLens Tag Genome Dataset 2021](https://grouplens.org/datasets/movielens/)  and [Full TMDB Movies Dataset 2024](https://www.kaggle.com/datasets/asaniczka/tmdb-movies-dataset-2023-930k-movies/data) datasets.
+The[MovieLens Tag Genome Dataset 2021](https://grouplens.org/datasets/movielens/) dataset gives us access to reviews and ratings for a wide range of movies.
+The TMBb dataset allows us to enrich our original dataset by offering a dataset that is closer in style to the original [CMU Movie Summary Corpus](http://www.cs.cmu.edu/~ark/personas/) one.
 
 ## Methods
 
@@ -50,14 +46,24 @@ The TMBb dataset allows us to have a more complete version, closer in style to t
 
 For our project, we intend on defining the relative success of a movie by assessing multiple statistics. These metrics include:
 
-- One can identify the "Golden Age" based on financial success by pointing out the period when the cinema industry generated the most revenue adjusted to inflation. Analysis box office data by year and thus visualize trends to identify periods of high financial success.
-- Movie ratings from MovieLens (From the MovieLens dataset): This metric gives the general grade given to each movie on the MovieLens website.
-- User movie ratings (From the MovieLens dataset): This metric gives the grade given by individual users on the MovieLens website.
-- Reviews sentiment analysis (From the MovieLens dataset): From user reviews collected on the MovieLens website, we want to run a sentiment analysis to find if they are positive or negative, and thus assess the evolution of sentiments along the years. For the sentiment analysis, we want to use FacebookAI's RoBERTa-base, a pretrained tokenizer and model distributed by HugginFace.
+- The popularity of a movie: We get a popularity score from the TMDb dataset, which is a metric that takes into account the following:
+  - Release date
+  - Number of users who added it to their "watchlist" for the day
+  - Number of users who marked it as a "favourite" for the day
+  - Number of views for the day
+  - Number of votes for the day
+  - Total number of votes
+  - Vote average
+  - Previous day's popularity score
+- The box office revenue of a movie adjusted for inflation. One can identify the "Golden Age" based on financial success by pointing out the period when the cinema industry generated the most revenue adjusted to inflation.
+- User movie ratings (from the MovieLens dataset). This metric gives the grade given by individual users on the MovieLens website. Viewers opinions are important to assess the success of a movie.
+- Reviews sentiment analysis (from [MovieLens Tag Genome Dataset 2021](https://grouplens.org/datasets/movielens/)) dataset: We run sentiment analysis on reviews, defining if they are positive or negative, and thus assess the again the viewers' point of view. For the sentiment analysis, we use a pretrained Bert model and a pretrained tokenizer available on HugginFace [here](https://huggingface.co/distilbert/distilbert-base-uncased-finetuned-sst-2-english).
+
+We define the "Golden Age" per genre as the decade where the average success score is the highest. We will also look at the average success score per year to identify the "Golden Age" of cinema in general. This will allow us to identify the most successful genres and periods in cinema history.
 
 ### Part 2 - Time-related trends analysis per genre and country
 
-Once the robust success metric is created, we want to apply it to all the movies in our combined dataset. This will help us to indicate how movie success (measured by box office, ratings, and sentiment) changes over time by genre and country, helping to identify shifts in dominant genres and regions, and pinpoint key cinematic "eras."
+Once the robust success metric is created, we want to apply it to all the movies in our combined dataset. This will help us to indicate how movie success (measured by popularity, box office, ratings, and sentiment) changes over time by genre, helping to identify shifts in dominant genres and regions, and pinpoint key cinematic "eras."
 The data will be preprocessed by grouping movies based on their genres (handling multi-genre films) and countries of origin. Then, we will calculate success metrics for each movie, aggregated by year, genre, and country.
 Using these metrics, we will create time-series data to track the success of different genres and countries over time. For each group, we will calculate the average success score, total box office revenue (adjusted for inflation), and the number of films produced.
 These trends will be analyzed in order to identify which genres and countries have been most successful at different times. For example, we might see action films rise in the 1980s or how Bollywood’s global influence grew in the 2000s. We’ll also look for cultural patterns, like the dominance of war films during WWII.
@@ -72,40 +78,6 @@ Next, we will examine the current trends in the industry. This includes identify
 To predict future trends, we will apply predictive models. Polynomial Regression or Ridge Regression could be used to forecast movie success based on factors like genre, cast, and release timing. We may also use ARIMA (Autoregressive Integrated Moving Average) for time-series forecasting to predict box office trends or shifts in genre popularity.
 The key insights from this analysis will offer conclusions about the future direction of the film industry. This includes identifying potential growth areas or disruptions, such as the rise of new genres, international markets, or emerging technologies in filmmaking and distribution.
 
-## Proposed timeline and organization
-
-Week 9 -- 11/11 - 17/11:
-
-- [x] Finding the additional datasets needed for the idea
-- [x] Combining the dataset and cleaning the data
-- [x] Have Proofs of concepts for all the methods we want to use in the project
-- [x] Project P2 deadline
-
-Week 10 -- 18/11 - 24/11:
-
-- [ ] Running the sentiment analysis on the movie critics: **Mahmoud**, **Matthieu**
-- [ ] Defining the "success" metric and testing it on selected movies to see how well it works: **Loïc**, **Léo**, **Bastien**
-
-Week 11 -- 25/11 - 01/12:
-
-- [ ] Finish the first part of the project
-  - [ ] Success yearly arrays analysis to find "golden ages": **Léo**, **Matthieu**, **Bastien**
-  - [ ] Vizualisation of the results found: **Loïc**, **Mahmoud**
-
-Week 12 -- 02/12 - 08/12:
-
-- [ ] Data vizualisation for second part: **Mahmoud**, **Bastien**
-- [ ] Using predictive models on the success yearly arrays for part 3: **Léo**, **Loïc**, **Matthieu**
-
-Week 13 -- 09/12 - 15/12:
-
-- [ ] Start writing the story. Will need to complete work done with more vizualisations: **Léo**, **Loïc**, **Mahmoud**
-
-Week 14 -- 16/12 - 20/12:
-
-- [ ] Project P3 deadline
-  - [ ] Finish the story we want to tell: **Bastien**, **Matthieu**
-
 ## Project Structure
 
 The directory structure of new project looks like this:
@@ -114,11 +86,12 @@ The directory structure of new project looks like this:
 ├── data                        <- Project data files
 │   │
 │   ├── CMU_movie                       <- Original CMU movies dataset
-│   ├── Converter                       <- Converter dataset used to match movie ID between datasets
+│   ├── Converter                       <- Converter dataset used to match movie IDs
 │   ├── MovieLens                       <- MovieLens dataset with ratings and reviews
-│   ├── MovieSummaries                  <- MovieSummaries
-│   ├── ...                             <- Other data files and folders
+│   ├── MovieSummaries                  <- Movie Summaries
+│   ├── TMDBMovies                      <- TMDB Movies dataset to enrich the original dataset
 │
+├── plots                       <- Our html plots
 ├── src                         <- Source code
 │   ├── models    
 │   │   │
@@ -134,9 +107,12 @@ The directory structure of new project looks like this:
 │
 ├── .gitignore                  <- List of files ignored by git
 ├── requirements.txt            <- File for installing python dependencies
+├── data.ipynb                  <-  a well-structured notebook used to load and preprocess the data
 ├── methods.ipynb               <- a well-structured notebook showing the methods used
-├── results.ipynb               <- a well-structured notebook showing some results
-├── resultsM2.ipynb             <- a well-structured notebook showing more results
+├── result.ipynb                <- a well-structured notebook showing our results
+├── resultsM2.ipynb             <- a well-structured notebook showing our results for milestone 2
 ├── sentiment_analysis.ipynb    <- a well-structured notebook to run sentiment analysis
-└── README.md
+├── READMEM2.md                 <- The Milestone 2 README.
+└── README.md                   <- The top-level README for developers using this project.
+
 ```
