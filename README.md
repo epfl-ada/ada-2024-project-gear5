@@ -1,8 +1,8 @@
 # ADA 2024 - Gear 5: Evolution of cinema through the years, finding the golden age
 
- 
 **Project Mentor:** [Shuo Wen](http://personnes.epfl.ch/shuo.wen) ([Email](shuo.wen@epfl.ch)),
 **Authors:** Mahmoud Dokmak, Matthieu Borello, Léo Brunneau, Loïc Domingos, Bastien Armstrong
+
 
 <hr style="clear:both">
 
