@@ -4,18 +4,39 @@ from scipy.optimize import curve_fit
 
 
 def exponential_func(x, a, b, c):
+    """
+    Calculate the value of an exponential function.
+    The function is defined as: f(x) = a * exp(b * x) + c
+    
+    Parameters:
+        x (float) : 
+            The input value for the function.
+        a (float) : 
+            The coefficient that scales the exponential term.
+        b (float) : 
+            The exponent coefficient.
+        c (float) : 
+            The constant term added to the exponential term.
+    
+    Returns:
+        float : 
+            The result of the exponential function.
+    """
+    
     return a * np.exp(b * x) + c
 
 def impact_genre(movies_df):
-    ###
-    # Function that calculates the impact of a given genre based on the success of movies in that genre. 
-    #
-    # Input arguments:
-    # - movies_df: Movies dataframe that contains the release date and the success of all movies in a given genre
-    #
-    # Output:
-    # - Impact series: A timeseries that shows the impact of a genre on the movie industry. 
-
+    """
+    Function that calculates the impact of a given genre based on the success of movies in that genre.
+    
+    Parameters :
+        movies_df (pd.DataFrame) : 
+            Movies dataframe that contains the release date and the success of all movies in a given genre. 
+            The dataframe must have the columns 'combined_release_date' and 'success_score'.
+    Returns :
+        pd.Series : 
+            A timeseries that shows the impact of a genre on the movie industry.
+    """
     
     # Surement changer le nom des colonnes pour que ca marche
     movies_df['combined_release_date'] = pd.to_datetime(movies_df['combined_release_date'], errors='coerce')
