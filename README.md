@@ -2,7 +2,7 @@
 
 **Project Mentor:** [Shuo Wen](http://personnes.epfl.ch/shuo.wen) ([Email](shuo.wen@epfl.ch)),
 **Authors:** Mahmoud Dokmak, Matthieu Borello, Léo Brunneau, Loïc Domingos, Bastien Armstrong
-
+[**Link to website:**](loxpac.github.io)
 
 <hr style="clear:both">
 
