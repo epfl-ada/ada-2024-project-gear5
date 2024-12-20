@@ -3,9 +3,6 @@ import numpy as np
 from scipy.optimize import curve_fit
 
 
-def exponential_func(x, a, b, c):
-    return a * np.exp(b * x) + c
-
 def impact_genre(movies_df):
     ###
     # Function that calculates the impact of a given genre based on the success of movies in that genre. 
@@ -65,13 +62,7 @@ def impact_genre(movies_df):
 
     
     impact_series = first_derivative_series.cumsum()
-
-    # We fit an polynomial to remove the trend -> More movies = more success
-    time_numeric = np.arange(len(impact_series))
-    coefficients = np.polyfit(time_numeric, impact_series, deg=2)
-    polynomial_trend = np.polyval(coefficients, time_numeric)
-    impact_series = impact_series - polynomial_trend
-
     impact_series = (impact_series)/100000
+    impact_series[impact_series < 0] = 0
     
     return impact_series
