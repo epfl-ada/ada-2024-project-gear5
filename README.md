@@ -78,6 +78,14 @@ Next, we will examine the current trends in the industry. This includes identify
 To predict future trends, we will apply predictive models. Polynomial Regression or Ridge Regression could be used to forecast movie success based on factors like genre, cast, and release timing. We may also use ARIMA (Autoregressive Integrated Moving Average) for time-series forecasting to predict box office trends or shifts in genre popularity.
 The key insights from this analysis will offer conclusions about the future direction of the film industry. This includes identifying potential growth areas or disruptions, such as the rise of new genres, international markets, or emerging technologies in filmmaking and distribution.
 
+## Proposed timeline and Team organization
+
+Matthieu: Success Metric definition, Predictive Models
+Mahmoud: Data Wrangling, Sentiment Analysis, Success Metric definition
+Bastien: Datastory writing, Data Visualization
+Léo: Data Visualization, Data Wrangling
+Loïc: Data Visualization, Website Optimization, Datastory writing
+
 ## Project Structure
 
 The directory structure of new project looks like this:
