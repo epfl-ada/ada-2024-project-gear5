@@ -78,7 +78,41 @@ Next, we will examine the current trends in the industry. This includes identify
 To predict future trends, we will apply predictive models. Polynomial Regression or Ridge Regression could be used to forecast movie success based on factors like genre, cast, and release timing. We may also use ARIMA (Autoregressive Integrated Moving Average) for time-series forecasting to predict box office trends or shifts in genre popularity.
 The key insights from this analysis will offer conclusions about the future direction of the film industry. This includes identifying potential growth areas or disruptions, such as the rise of new genres, international markets, or emerging technologies in filmmaking and distribution.
 
-## Proposed timeline and Team organization
+## Proposed timeline and organization
+
+Week 9 -- 11/11 - 17/11:
+
+- [x] Finding the additional datasets needed for the idea
+- [x] Combining the dataset and cleaning the data
+- [x] Have Proofs of concepts for all the methods we want to use in the project
+- [x] Project P2 deadline
+
+Week 10 -- 18/11 - 24/11:
+
+- [x] Running the sentiment analysis on the movie critics: **Mahmoud**, **Matthieu**
+- [x] Defining the "success" metric and testing it on selected movies to see how well it works: **Loïc**, **Léo**, **Bastien**
+
+Week 11 -- 25/11 - 01/12:
+
+- [x] Finish the first part of the project
+- [x] Success yearly arrays analysis to find "golden ages": **Léo**, **Matthieu**, **Bastien**
+- [x] Vizualisation of the results found: **Loïc**, **Mahmoud**
+
+Week 12 -- 02/12 - 08/12:
+
+- [x] Data vizualisation for second part: **Mahmoud**, **Bastien**
+- [x] Using predictive models on the success yearly arrays for part 3: **Léo**, **Loïc**, **Matthieu**
+
+Week 13 -- 09/12 - 15/12:
+
+- [x] Start writing the story. Will need to complete work done with more vizualisations: **Léo**, **Loïc**, **Mahmoud**
+
+Week 14 -- 16/12 - 20/12:
+
+- [x] Project P3 deadline
+- [x] Finish the story we want to tell: **Bastien**, **Matthieu**
+
+## Team organization
 
 - Matthieu: Success Metric definition, Predictive Models (ARIMA)
 - Mahmoud: Data Wrangling, Sentiment Analysis, Success Metric definition
