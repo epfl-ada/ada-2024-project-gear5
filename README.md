@@ -80,11 +80,11 @@ The key insights from this analysis will offer conclusions about the future dire
 
 ## Proposed timeline and Team organization
 
-Matthieu: Success Metric definition, Predictive Models
-Mahmoud: Data Wrangling, Sentiment Analysis, Success Metric definition
-Bastien: Datastory writing, Data Visualization
-Léo: Data Visualization, Data Wrangling
-Loïc: Data Visualization, Website Optimization, Datastory writing
+- Matthieu: Success Metric definition, Predictive Models (ARIMA)
+- Mahmoud: Data Wrangling, Sentiment Analysis, Success Metric definition
+- Bastien: Datastory writing, Data Visualization
+- Léo: Data Visualization, Data Wrangling
+- Loïc: Data Visualization, Website Optimization, Datastory writing
 
 ## Project Structure
 
