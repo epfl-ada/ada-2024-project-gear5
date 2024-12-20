@@ -6,7 +6,9 @@
 
 <hr style="clear:both">
 
+## Website
 
+You can find the project website [here](https://loxpac.github.io/).
 
 ## Quickstart
 
