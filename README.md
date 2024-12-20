@@ -100,7 +100,7 @@ The directory structure of new project looks like this:
 │   │   ├── Impact.py                       <- Used to calculate impact of a given genre
 │   │   └── sentiment_analysis.py           <- Used to calculate impact of a given genre
 │   │  
-│   ├── utils                           <- Utility directory
+│   └── utils                           <- Utility directory
 │       │
 │       ├── print_prediction.py             <- Printing prediction proof of concept
 │       └── result_utils.py                 <- Utilities
